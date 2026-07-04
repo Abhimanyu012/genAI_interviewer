@@ -10,7 +10,7 @@ const jwt = require("jsonwebtoken");
 const registerUserController = async (req, res) => {
     try {
         const { username, email, password } = req.body;
-        
+
         if (!username || !email || !password) {
             return res.status(400).json({ message: "All fields are required" });
         }
@@ -18,7 +18,7 @@ const registerUserController = async (req, res) => {
         const isUserAlreadyExists = await userModel.findOne({
             $or: [{ username }, { email }]
         });
-        
+
         if (isUserAlreadyExists) {
             return res.status(400).json({ message: "Account already exists" });
         }
@@ -34,8 +34,8 @@ const registerUserController = async (req, res) => {
 
         // Sign token using an environment fallback secret keys
         const token = jwt.sign(
-            { id: createUser._id }, 
-            process.env.JWT_SECRET || "fallback_secret_key", 
+            { id: createUser._id },
+            process.env.JWT_SECRET || "fallback_secret_key",
             { expiresIn: "1d" }
         );
 
@@ -47,8 +47,8 @@ const registerUserController = async (req, res) => {
             maxAge: 24 * 60 * 60 * 1000 // 1 day
         });
 
-        return res.status(201).json({ 
-            message: "User created successfully", 
+        return res.status(201).json({
+            message: "User created successfully",
             user: {
                 id: createUser._id,
                 username: createUser.username,
@@ -70,7 +70,7 @@ const registerUserController = async (req, res) => {
 const loginUserController = async (req, res) => {
     try {
         const { email, password } = req.body;
-        
+
         if (!email || !password) {
             return res.status(400).json({ message: "All fields are required" });
         }
@@ -85,10 +85,10 @@ const loginUserController = async (req, res) => {
         if (!isPasswordValid) {
             return res.status(400).json({ message: "Invalid email or password" });
         }
-         
+
         const token = jwt.sign(
-            { id: user._id }, 
-            process.env.JWT_SECRET || "fallback_secret_key", 
+            { id: user._id },
+            process.env.JWT_SECRET || "fallback_secret_key",
             { expiresIn: "1d" }
         );
 
@@ -100,8 +100,8 @@ const loginUserController = async (req, res) => {
         });
 
         // Use standard 200 HTTP status code for successful resource retrieval
-        return res.status(200).json({ 
-            message: "User logged in successfully", 
+        return res.status(200).json({
+            message: "User logged in successfully",
             user: {
                 id: user._id,
                 username: user.username,
