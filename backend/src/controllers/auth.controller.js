@@ -113,7 +113,11 @@ const loginUserController = async (req, res) => {
     }
 };
 
-
+/**
+ * @name getUserController
+ * @description Get user in existing user.
+ * @access Public
+ */
 
 const getUserController = async (req, res) => {
     try {
@@ -137,6 +141,12 @@ const getUserController = async (req, res) => {
         return res.status(500).json({ message: "Internal server error" });
     }
 }
+/**
+ * @name logoutController
+ * @description logout user and black the token .
+ * @access Public
+ */
+
 const logoutController = async (req, res) => {
     try {
         const token = req.cookies.token;

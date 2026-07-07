@@ -1,5 +1,4 @@
-
-
+console.log("server is running")
 require("dotenv").config();
 const app = require("./src/app");
 
