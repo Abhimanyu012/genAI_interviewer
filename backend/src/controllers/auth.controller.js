@@ -49,8 +49,7 @@ const registerUserController = async (req, res) => {
                 id: createUser._id,
                 username: createUser.username,
                 email: createUser.email
-            },
-            token
+            }
         });
     } catch (error) {
         console.error(error);
