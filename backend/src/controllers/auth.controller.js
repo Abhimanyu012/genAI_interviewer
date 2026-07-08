@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
-const userModel  = require("../models/user.model");
-const tokenBlacklistModel  = require("../models/tokenBlacklist");
+const userModel = require("../models/user.model");
+const tokenBlacklistModel = require("../models/tokenBlacklist");
 const jwt = require("jsonwebtoken");
 
 
@@ -69,6 +69,8 @@ const registerUserController = async (req, res) => {
 const loginUserController = async (req, res) => {
     try {
         const { email, password } = req.body;
+        console.log("EMAIL:", email);
+        console.log("PASSWORD:", password);
 
         if (!email || !password) {
             return res.status(400).json({ message: "All fields are required" });
@@ -108,8 +110,8 @@ const loginUserController = async (req, res) => {
             token
         });
     } catch (error) {
-        console.error(error);
-        return res.status(500).json({ message: "Internal server error" });
+        console.log("STATUS:", error.response?.status);
+        console.log("MESSAGE:", error.response?.data);
     }
 };
 
@@ -121,7 +123,7 @@ const loginUserController = async (req, res) => {
 
 const getUserController = async (req, res) => {
     try {
-       
+
         const user = await userModel.findById(req.user.id);
         if (!user) {
             return res.status(400).json({ message: "User not found" });
