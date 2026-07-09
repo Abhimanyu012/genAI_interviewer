@@ -47,8 +47,8 @@ const Register = () => {
     try {
       const response = await register(formData);
       console.log("response hai ye", response, response.message);
+      navigate("/dashboard");
     } catch (error) {
-      
       console.log(error.response.data.message);
       setError(error.response?.data?.message || "Something went wrong");
     }
