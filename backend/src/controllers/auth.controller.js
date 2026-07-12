@@ -115,7 +115,7 @@ const loginUserController = async (req, res) => {
 
 /**
  * @name getUserController
- * @description Get user in existing user.
+ * @description Get user in existing user from database.
  * @access Public
  */
 
