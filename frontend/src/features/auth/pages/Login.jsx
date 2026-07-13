@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { login } from "../services/authService";
+import { useAuth } from "../hooks/useAuth";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -7,27 +8,10 @@ function Login() {
     password: "",
   });
 
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
+  const { handleLogin, loading,message,error} = useAuth();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    setError("");
-    setMessage("")
-    setLoading(true);
-
-    try {
-      const response = await login(formData);
-      console.log(response.message);
-      setMessage(response.message);
-    } catch (error) {
-      console.log(error.response?.data?.message || "something went wrong");
-      setError(error.response?.data?.message || "Something went wrong");
-    } finally {
-      setLoading(false);
-    }
+    await handleLogin(formData);
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
