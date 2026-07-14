@@ -19,7 +19,7 @@ export const useAuth = () => {
       setLoading(true);
       const data = await login({ email, password });
       const message = data.message;
-      console.log(data)
+      console.log(data);
       setMessage(message);
       setUser(data.user);
       setError("");
@@ -43,7 +43,6 @@ export const useAuth = () => {
   };
   const handleGetMe = async () => {
     setLoading(true);
-    const data = await getMe();
     setUser(data.user);
     setLoading(false);
   };
@@ -55,6 +54,6 @@ export const useAuth = () => {
     handleLogout,
     handleGetMe,
     message,
-    error
+    error,
   };
 };
