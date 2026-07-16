@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { login } from "../services/authService";
-import { useAuth } from "../hooks/useAuth";
+import { useLogin } from "../hooks/useLogin";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -8,11 +8,16 @@ function Login() {
     password: "",
   });
 
-  const { handleLogin, loading,message,error} = useAuth();
+  const navigate = useNavigate();
+  const { handleLogin, error, message, loading } = useLogin();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await handleLogin(formData);
+    const response = await handleLogin(formData);
+    if (response) {
+      navigate("/dashboard",{replace:true});
+    }
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -20,8 +25,9 @@ function Login() {
 
   return (
     <form onSubmit={handleSubmit} className="red-500">
-      {error && <p className="text-red-500">{error}</p>}
-      <p className="text-green-400">{message}</p>
+      {error && <p>{error}</p>}
+
+      {message && <p>{message}</p>}
       <input
         name="email"
         type="email"
@@ -41,6 +47,7 @@ function Login() {
       <button disabled={loading} type="submit">
         {loading ? "Logging in..." : "Login"}
       </button>
+
     </form>
   );
 }

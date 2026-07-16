@@ -6,12 +6,8 @@ const api = axios.create({
 });
 
 export const login = async (data) => {
-  try {
-    const response = await api.post("/login", data);
-    return response.data;
-  } catch (error) {
-    return error.response?.data;
-  }
+  const response = await api.post("/login", data);
+  return response.data;
 };
 export const register = async (data) => {
   try {
@@ -30,10 +26,6 @@ export const logout = async () => {
   }
 };
 export const getMe = async () => {
-  try {
-    const response = await api.get("/get-me");
-    return response.data;
-  } catch (error) {
-    return error.response?.data;
-  }
+  const response = await api.get("/get-me");
+  return response.data;
 };
