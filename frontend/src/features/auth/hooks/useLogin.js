@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { login } from "../services/authService";
+import toast from "react-hot-toast";
 import { useAuth } from "./useAuth";
 
 export const useLogin = () => {
@@ -16,11 +17,12 @@ export const useLogin = () => {
       const response = await login({ email, password });
       setMessage(response.message);
       setUser(response.user);
-      console.log(response)
+      toast.success(response.message);
+      console.log(response);
       return response;
     } catch (error) {
       setError(error.response?.data?.message || error.message);
-
+      toast.error(error.response?.data?.message || error.message);
       return null;
     } finally {
       setLoading(false);
