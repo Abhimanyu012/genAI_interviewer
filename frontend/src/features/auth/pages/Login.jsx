@@ -31,7 +31,6 @@ function Login() {
       return;
     }
 
-    console.log(errors.email, errors.password);
     const response = await handleLogin(formData);
     if (response) {
       navigate("/dashboard", { replace: true });
