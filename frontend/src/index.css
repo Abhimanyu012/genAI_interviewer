@@ -1,1 +1,46 @@
-@import 'tailwindcss'
+@import 'tailwindcss';
+
+@keyframes hero-title-enter {
+	0% {
+		opacity: 0;
+		transform: translateY(18px) scale(0.98);
+		filter: blur(8px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+		filter: blur(0);
+	}
+}
+
+@keyframes hero-word-pop {
+	0% {
+		opacity: 0;
+		transform: translateY(10px) rotate(-1deg) scale(0.94);
+	}
+
+	65% {
+		opacity: 1;
+		transform: translateY(-2px) rotate(0deg) scale(1.02);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0) rotate(0deg) scale(1);
+	}
+}
+
+.animate-hero-title {
+	animation: hero-title-enter 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-hero-word {
+	display: inline-block;
+	animation: hero-word-pop 1100ms cubic-bezier(0.16, 1, 0.3, 1) 120ms both;
+}
+
+.animate-hero-muted {
+	display: inline-block;
+	animation: hero-word-pop 1100ms cubic-bezier(0.16, 1, 0.3, 1) 220ms both;
+}
