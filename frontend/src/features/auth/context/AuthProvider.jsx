@@ -6,6 +6,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const isAuthenticated = !!user;
+
   useEffect(() => {
     const fetchuser = async () => {
       try {
@@ -15,8 +16,7 @@ export const AuthProvider = ({ children }) => {
         });
         const response = await getMe();
         setUser(response.user);
-        console.log("response= ",response);
-        
+        console.log("response = ", response);
       } catch (error) {
         setUser(null);
       } finally {
@@ -25,9 +25,6 @@ export const AuthProvider = ({ children }) => {
     };
     fetchuser();
   }, []);
-  useEffect(() => {
-  console.log("User changed:", user);
-}, [user]);
 
   return (
     <AuthContext.Provider value={{ user, setUser, isAuthenticated, loading }}>

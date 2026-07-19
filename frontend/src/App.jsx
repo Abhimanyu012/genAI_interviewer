@@ -29,7 +29,11 @@ const App = () => {
             </GuestRoute>
           }
         />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" 
+        element={ 
+        <GuestRoute>
+          <Register /> 
+        </GuestRoute>}/>
         <Route
           path="/dashboard"
           element={

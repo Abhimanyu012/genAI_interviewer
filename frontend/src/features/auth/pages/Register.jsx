@@ -1,99 +1,68 @@
-import React from "react";
-import { useState } from "react";
-import { register } from "../services/authService";
+import React, { useState } from "react";
+import { useLogin } from "../hooks/useLogin";
+import { replace, useNavigate } from "react-router-dom";
+import Dashboard from "./Dashboard";
+
 const Register = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     email: "",
     password: "",
   });
-  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-
-  const handelSubmit = async (e) => {
+  const { handleRegister, error, message, loading } = useLogin();
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
-    if (!formData.username.trim()) {
-      setError("Username is required");
-      return;
-    }
-
-    if (!formData.email.trim()) {
-      setError("Email is required");
-      return;
-    }
-
-    if (!formData.email.includes("@")) {
-      setError("Invalid email");
-      return;
-    }
-
-    if (!formData.password.trim()) {
-      setError("Password is required");
-      return;
-    }
-
-    if (formData.password.length < 6) {
-      setError("Password must be at least 6 characters");
-      return;
-    }
-
     console.log(formData);
-
-    try {
-      const response = await register(formData);
-      console.log("response hai ye", response, response.message);
-      navigate("/dashboard");
-    } catch (error) {
-      console.log(error.response.data.message);
-      setError(error.response?.data?.message || "Something went wrong");
-    }
+    const response = await handleRegister(formData);
+    if (response) navigate(<Dashboard />, { replace: true });
   };
+
   return (
-    <div className="flex items-center justify-center h-screen w-full">
+    <div className="h-screen w-full flex items-center justify-center flex-col gap-2">
       <form
-        className="flex items-center justify-center flex-col"
-        onSubmit={handelSubmit}
+        onSubmit={handleSubmit}
+        className="p-2 flex items-center justify-center flex-col gap-4 border"
       >
-        {/* <p>{response.message}</p> */}
-        {error && <p>{error}</p>}
-        <label htmlFor="username">Username</label>
+        <h1 className=" px-3 py-1 font-bold hover:border outline-none transition-all duration-300 hover:bg-red-900/50">
+          Register
+        </h1>
         <input
-          id="username"
           type="text"
           name="username"
           value={formData.username}
           onChange={handleChange}
-          placeholder="Enter your username..."
-          className="border p-2 rounded"
+          placeholder="enter your username"
+          className="border px-3 py-1"
         />
-
-        <label htmlFor="email">Email</label>
         <input
-          id="email"
-          type="email"
+          type="text"
           name="email"
           value={formData.email}
           onChange={handleChange}
-          placeholder="Enter your email..."
-          className="border p-2 rounded"
+          placeholder="enter your email"
+          className="border px-3 py-1 "
         />
-
-        <label htmlFor="password">Password</label>
         <input
-          id="password"
-          type="password"
+          type="text"
           name="password"
           value={formData.password}
           onChange={handleChange}
-          placeholder="Enter your password"
-          className="border p-2 rounded"
+          placeholder="enter your password"
+          className="border px-3 py-1"
         />
-        <button type="submit">Register</button>
+        <button
+          type="submit"
+          className="border p-1 rounded-md w-full"
+          className="border px-3 py-1"
+        >
+          Register
+        </button>
       </form>
     </div>
   );

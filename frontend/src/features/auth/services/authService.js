@@ -10,12 +10,9 @@ export const login = async (data) => {
   return response.data;
 };
 export const register = async (data) => {
-  try {
     const response = await api.post("/register", data);
     return response.data;
-  } catch (error) {
-    return error.response?.data;
-  }
+  
 };
 export const logout = async () => {
   try {
