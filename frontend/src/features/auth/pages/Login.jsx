@@ -60,15 +60,15 @@ function Login() {
 
   return (
     <div
-      className="relative min-h-screen overflow-hidden  px-4 py-6 sm:px-6 lg:px-8"
+      className="relative min-h-screen overflow-hidden  px-4 py-6 sm:px-6 lg:px-8 backdrop:blur-lg bg-purple-100/5"
       style={{
-        backgroundImage: `linear-gradient(135deg, rgba(200, 500, 800, 0.5) 0%, rgba(1, 23, 42, 0.78) 48%, rgba(2, 2, 2, 0.92) 100%), url(${loginIllustration})`,
+        backgroundImage: `linear-gradient(135deg, rgba(200, 500, 800, 0.5) 0%, rgba(1, 23, 42, 0.78) 48%, rgba(2, 2, 2, 0.92) 100%) , url(${loginIllustration})`,
         backgroundPosition: "center",
         backgroundSize: "fit",
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.16),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(99,102,241,0.2),transparent_32%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.16),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(99,102,241,0.2),transparent_32%)] " />
 
       <div className="relative mx-auto flex min-h-[calc(100vh-3rem)] w-full max-w-7xl items-center">
         <div className="grid w-full gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
@@ -77,7 +77,7 @@ function Login() {
               Welcome back
             </span>
 
-            <div className="max-w-2xl text-zinc-100  text-shadow-lg ">
+            <div className="max-w-2xl text-white/70  text-shadow-lg ">
               <h1 className="animate-hero-title text-9xl font-extrabold tracking-tighter">
                 <span className="animate-hero-word ">Login to</span>
                 keep your work moving.
