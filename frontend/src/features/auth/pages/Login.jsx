@@ -66,6 +66,7 @@ function Login() {
         backgroundPosition: "center",
         backgroundSize: "fit",
         backgroundRepeat: "no-repeat",
+        backdropFilter:"inherit"
       }}
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.16),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(99,102,241,0.2),transparent_32%)] " />
