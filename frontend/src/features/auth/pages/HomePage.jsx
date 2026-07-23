@@ -67,8 +67,8 @@ const features = [
 
 const steps = [
   'Upload your resume or paste your experience.',
-  'Add the job description you want to target.',
-  'Get a score, tailored suggestions, and a polished resume draft.',
+  'Add the role or job description you want to target.',
+  'Get a score, tailored suggestions, and a refined draft.',
 ]
 
 const metrics = [
@@ -81,76 +81,86 @@ const trustLogos = ['ATS-safe formatting', 'Fast tailoring', 'Clean exports']
 
 const HomePage = () => {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#fff9f0] text-slate-900">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.18),transparent_28%),radial-gradient(circle_at_top_right,rgba(96,165,250,0.18),transparent_24%),linear-gradient(180deg,#fffdf7_0%,#fff6ea_45%,#fff0fb_100%)]" />
-      <div className="absolute -left-14 top-16 h-40 w-40 rounded-full bg-amber-300/60 blur-2xl animate-float-slow" />
-      <div className="absolute right-0 top-28 h-56 w-56 rounded-full bg-sky-300/50 blur-3xl animate-float-delayed" />
-      <div className="absolute bottom-4 left-1/3 h-44 w-44 rounded-full bg-pink-300/45 blur-3xl animate-float-slow" />
+    <main className="relative min-h-screen overflow-hidden bg-[#f5f5f7] text-slate-900">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.92),transparent_40%),linear-gradient(180deg,#ffffff_0%,#f5f5f7_55%,#eef2f7_100%)]" />
+      <div className="absolute left-1/2 top-10 h-80 w-80 -translate-x-1/2 rounded-full bg-sky-100/70 blur-3xl animate-float-slow" />
 
-      <div className="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col px-6 pb-14 pt-8 lg:px-10">
-        <header className="flex items-center justify-between gap-4 border-b-2 border-slate-900/10 pb-6">
+      <div className="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col px-6 pb-16 pt-6 lg:px-10">
+        <header className="flex items-center justify-between gap-4 border-b border-slate-200/80 pb-5">
           <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-slate-900 bg-amber-300 text-xl shadow-[4px_4px_0_0_rgba(15,23,42,0.14)]">
-              ✦
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-950 text-white shadow-[0_10px_30px_rgba(15,23,42,0.18)]">
+              R
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.35em] text-sky-700">Resume Studio</p>
-              <h1 className="font-display mt-2 text-lg font-semibold text-slate-900">Resume Analyzer & Creator</h1>
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.35em] text-slate-500">Resume Studio</p>
+              <h1 className="font-display mt-1 text-base font-semibold tracking-[-0.02em] text-slate-950">
+                Resume Analyzer & Creator
+              </h1>
             </div>
           </div>
+
+          <nav className="hidden items-center gap-6 text-sm text-slate-600 md:flex">
+            <a href="#features" className="transition hover:text-slate-950">Features</a>
+            <a href="#workflow" className="transition hover:text-slate-950">Workflow</a>
+            <a href="#benefits" className="transition hover:text-slate-950">Benefits</a>
+          </nav>
+
           <div className="flex items-center gap-3">
             <Link
               to="/login"
               className="liquid-btn liquid-btn-secondary rounded-full px-4 py-2 text-sm font-medium"
             >
-              Login
+              Sign in
             </Link>
             <Link
               to="/register"
               className="liquid-btn liquid-btn-primary rounded-full px-4 py-2 text-sm font-semibold"
             >
-              Get Started
+              Get started
             </Link>
           </div>
         </header>
 
-        <section className="grid flex-1 items-center gap-10 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:py-14">
+        <section className="grid flex-1 items-center gap-12 py-14 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16 lg:py-20">
           <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 rounded-full border-2 border-slate-900 bg-amber-200 px-4 py-2 text-sm font-semibold text-slate-900 shadow-[4px_4px_0_0_rgba(15,23,42,0.12)] backdrop-blur animate-hero-title">
-              <span className="h-2.5 w-2.5 rounded-full bg-rose-500 animate-pulse" />
-              Cartoon-style resume magic for job seekers
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/85 px-4 py-2 text-sm font-medium text-slate-600 shadow-sm backdrop-blur animate-hero-title">
+              <span className="h-2 w-2 rounded-full bg-sky-500" />
+              Built for job seekers who want sharper results
             </div>
 
             <div className="space-y-5">
-              <h2 className="font-display max-w-3xl text-5xl font-bold leading-[0.92] tracking-tighter text-slate-950 sm:text-6xl lg:text-7xl animate-hero-title">
-                Make your resume feel fun, smart, and instantly job-ready.
+              <h2 className="font-display max-w-3xl text-[3.25rem] font-semibold leading-[0.96] tracking-tighter text-slate-950 sm:text-[4.4rem] lg:text-[5.8rem] animate-hero-title">
+                Resume intelligence designed to feel effortless.
               </h2>
-              <p className="font-body max-w-2xl text-base leading-7 text-slate-700 sm:text-lg animate-hero-muted">
-                Upload your resume, paste a job description, and get colorful suggestions, stronger bullet points, and a polished
-                version that feels playful without losing professionalism.
+              <p className="font-body max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl animate-hero-muted">
+                Analyze your resume against a job description, uncover what is missing, and generate a cleaner version that looks and
+                reads like it was built for the role.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-2">
               {trustLogos.map((item) => (
-                <span key={item} className="rounded-full border-2 border-slate-900 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-slate-600 shadow-[3px_3px_0_0_rgba(15,23,42,0.1)]">
+                <span
+                  key={item}
+                  className="rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-slate-500 shadow-sm"
+                >
                   {item}
                 </span>
               ))}
             </div>
 
-            <div className="flex flex-col gap-4 sm:flex-row">
+            <div className="flex flex-col gap-3 sm:flex-row">
               <Link
                 to="/register"
                 className="liquid-btn liquid-btn-primary inline-flex items-center justify-center px-6 py-3 text-sm font-semibold"
               >
-                Start Free Analysis
+                Start free analysis
               </Link>
               <Link
                 to="/login"
                 className="liquid-btn liquid-btn-secondary inline-flex items-center justify-center px-6 py-3 text-sm font-semibold"
               >
-                View Demo Workspace
+                See the dashboard
               </Link>
             </div>
 
@@ -158,54 +168,59 @@ const HomePage = () => {
               {metrics.map((metric) => (
                 <div
                   key={metric.label}
-                  className="rounded-3xl border-2 border-slate-900 bg-white p-5 shadow-[6px_6px_0_0_rgba(15,23,42,0.12)] animate-card-rise"
+                  className="rounded-3xl border border-slate-200 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.06)] animate-card-rise"
                 >
-                  <p className="font-display text-3xl font-semibold text-slate-950">{metric.value}</p>
-                  <p className="mt-1 text-sm text-slate-600">{metric.label}</p>
+                  <p className="font-display text-3xl font-semibold tracking-[-0.03em] text-slate-950">{metric.value}</p>
+                  <p className="mt-1 text-sm text-slate-500">{metric.label}</p>
                 </div>
               ))}
             </div>
           </div>
 
           <div className="relative">
-            <div className="absolute -left-4 top-8 h-24 w-24 rounded-full bg-amber-300/40 blur-2xl animate-pulse" />
-            <div className="absolute -right-3 bottom-8 h-20 w-20 rounded-full bg-rose-300/40 blur-2xl animate-pulse" />
-            <div className="relative overflow-hidden rounded-4xl border-2 border-slate-900 bg-white p-5 shadow-[8px_8px_0_0_rgba(15,23,42,0.12)] backdrop-blur-xl animate-card-rise">
-              <div className="flex items-center justify-between border-b-2 border-slate-900 pb-4">
+            <div className="absolute -left-4 top-10 h-24 w-24 rounded-full bg-sky-100 blur-2xl animate-pulse" />
+            <div className="absolute -right-2 bottom-8 h-20 w-20 rounded-full bg-slate-200 blur-2xl animate-pulse" />
+
+            <div className="relative overflow-hidden rounded-4xl border border-slate-200 bg-white p-6 shadow-[0_22px_60px_rgba(15,23,42,0.08)] animate-card-rise">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-4">
                 <div>
-                  <p className="font-display text-sm font-semibold text-sky-700">Job Match Report</p>
+                  <p className="font-display text-sm font-semibold tracking-[0.18em] text-slate-500 uppercase">Match Preview</p>
                   <p className="mt-1 text-xs text-slate-500">Product Designer · Remote · Mid-level</p>
                 </div>
-                <div className="rounded-full border-2 border-slate-900 bg-emerald-200 px-3 py-1 text-sm font-semibold text-slate-900 shadow-[3px_3px_0_0_rgba(15,23,42,0.1)]">
+                <div className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-sm font-semibold text-slate-900">
                   86% Match
                 </div>
               </div>
 
               <div className="mt-5 space-y-4">
-                <div className="rounded-3xl border-2 border-slate-900 bg-amber-50 p-4">
+                <div className="rounded-[1.4rem] border border-slate-200 bg-slate-50 p-5">
                   <div className="flex items-center justify-between text-sm text-slate-600">
                     <span>Overall fit</span>
                     <span className="font-medium text-slate-900">86 / 100</span>
                   </div>
-                  <div className="mt-3 h-3 rounded-full bg-slate-200 border border-slate-900">
-                    <div className="h-3 w-[86%] rounded-full bg-linear-to-r from-rose-400 via-amber-400 to-sky-500" />
+                  <div className="mt-3 h-2 rounded-full bg-slate-200">
+                    <div className="h-2 w-[86%] rounded-full bg-linear-to-r from-sky-500 via-cyan-500 to-indigo-500" />
                   </div>
                 </div>
 
                 <div className="grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-3xl border-2 border-slate-900 bg-sky-50 p-4">
-                    <p className="text-xs uppercase tracking-[0.3em] text-slate-500">Top keywords</p>
+                  <div className="rounded-[1.4rem] border border-slate-200 bg-white p-4">
+                    <p className="text-xs uppercase tracking-[0.28em] text-slate-500">Top keywords</p>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {['Figma', 'Accessibility', 'Design systems', 'User research'].map((tag) => (
-                        <span key={tag} className="rounded-full border-2 border-slate-900 bg-white px-3 py-1 text-xs font-semibold text-sky-700 shadow-[2px_2px_0_0_rgba(15,23,42,0.08)]">
+                        <span
+                          key={tag}
+                          className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700"
+                        >
                           {tag}
                         </span>
                       ))}
                     </div>
                   </div>
-                  <div className="rounded-3xl border-2 border-slate-900 bg-pink-50 p-4">
-                    <p className="text-xs uppercase tracking-[0.3em] text-slate-500">Missing signals</p>
-                    <ul className="mt-3 space-y-2 text-sm text-slate-700">
+
+                  <div className="rounded-[1.4rem] border border-slate-200 bg-white p-4">
+                    <p className="text-xs uppercase tracking-[0.28em] text-slate-500">Missing signals</p>
+                    <ul className="mt-3 space-y-2 text-sm text-slate-600">
                       <li>• Quantified impact</li>
                       <li>• UX metrics</li>
                       <li>• Cross-functional leadership</li>
@@ -213,9 +228,9 @@ const HomePage = () => {
                   </div>
                 </div>
 
-                <div className="rounded-3xl border-2 border-slate-900 bg-emerald-100 p-4 shadow-[4px_4px_0_0_rgba(15,23,42,0.08)]">
-                  <p className="text-sm font-semibold text-emerald-700">AI suggestion</p>
-                  <p className="mt-2 text-sm leading-6 text-slate-700">
+                <div className="rounded-[1.4rem] border border-slate-200 bg-slate-50 p-5">
+                  <p className="text-sm font-semibold text-slate-900">AI suggestion</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
                     Rewrite your last role to emphasize outcomes. Example: reduced onboarding friction by 28% through a redesigned
                     task flow and clearer empty states.
                   </p>
@@ -225,29 +240,31 @@ const HomePage = () => {
           </div>
         </section>
 
-        <section className="grid gap-6 border-t-2 border-slate-900/10 py-10 lg:grid-cols-3">
+        <section id="features" className="grid gap-5 border-t border-slate-200 py-10 md:grid-cols-3">
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="rounded-[1.75rem] border-2 border-slate-900 bg-white p-6 shadow-[6px_6px_0_0_rgba(15,23,42,0.12)] transition duration-300 hover:-translate-y-1 hover:-rotate-1 animate-card-rise"
+              className="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_12px_30px_rgba(15,23,42,0.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(15,23,42,0.08)] animate-card-rise"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-slate-900 bg-amber-200 text-sky-700 shadow-[3px_3px_0_0_rgba(15,23,42,0.1)]">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-900 text-white">
                 {feature.icon}
               </div>
-              <h3 className="font-display mt-5 text-xl font-semibold text-slate-950">{feature.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-700">{feature.description}</p>
+              <h3 className="font-display mt-5 text-xl font-semibold tracking-[-0.02em] text-slate-950">{feature.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-slate-600">{feature.description}</p>
             </div>
           ))}
         </section>
 
-        <section className="grid gap-6 pb-4 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="rounded-[1.75rem] border-2 border-slate-900 bg-white p-7 shadow-[8px_8px_0_0_rgba(15,23,42,0.12)] backdrop-blur-xl">
-            <p className="text-sm font-semibold text-sky-700">How it works</p>
-            <h3 className="font-display mt-3 text-2xl font-semibold text-slate-950">A clear workflow for job seekers</h3>
+        <section id="workflow" className="grid gap-6 pb-4 lg:grid-cols-[0.96fr_1.04fr]">
+          <div className="rounded-4xl border border-slate-200 bg-white p-7 shadow-[0_16px_40px_rgba(15,23,42,0.06)]">
+            <p className="text-sm font-semibold text-slate-500 uppercase tracking-[0.25em]">Workflow</p>
+            <h3 className="font-display mt-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
+              Simple steps. Clear output. Better results.
+            </h3>
             <div className="mt-6 space-y-4">
               {steps.map((step, index) => (
-                <div key={step} className="flex gap-4 rounded-2xl border-2 border-slate-900 bg-amber-50 p-4 shadow-[4px_4px_0_0_rgba(15,23,42,0.08)]">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-slate-900 bg-rose-300 text-sm font-semibold text-slate-900">
+                <div key={step} className="flex gap-4 rounded-[1.25rem] border border-slate-200 bg-slate-50 p-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-semibold text-white">
                     {index + 1}
                   </div>
                   <p className="pt-1 text-sm leading-6 text-slate-600">{step}</p>
@@ -256,23 +273,30 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2">
-            <div className="rounded-[1.75rem] border-2 border-slate-900 bg-linear-to-br from-sky-50 to-amber-50 p-7 shadow-[8px_8px_0_0_rgba(15,23,42,0.12)] backdrop-blur-xl">
-              <p className="text-sm font-semibold text-sky-700">Built for</p>
-              <h3 className="font-display mt-3 text-2xl font-semibold text-slate-950">Freshers, switchers, and experienced candidates</h3>
-              <p className="mt-4 text-sm leading-6 text-slate-700">
-                Whether you are entering the job market or targeting a better role, the layout helps you tailor your story quickly.
+          <div id="benefits" className="grid gap-6 sm:grid-cols-2">
+            <div className="rounded-4xl border border-slate-200 bg-linear-to-br from-white to-slate-50 p-7 shadow-[0_16px_40px_rgba(15,23,42,0.06)]">
+              <p className="text-sm font-semibold text-slate-500 uppercase tracking-[0.25em]">Built for</p>
+              <h3 className="font-display mt-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
+                Freshers, switchers, and experienced candidates
+              </h3>
+              <p className="mt-4 text-sm leading-6 text-slate-600">
+                The layout is designed to help any job seeker turn one resume into a sharper version for each application.
               </p>
             </div>
 
-            <div className="rounded-[1.75rem] border-2 border-slate-900 bg-white p-7 shadow-[8px_8px_0_0_rgba(15,23,42,0.12)] backdrop-blur-xl">
-              <p className="text-sm font-semibold text-sky-700">Ready to begin?</p>
-              <h3 className="font-display mt-3 text-2xl font-semibold text-slate-950">Turn one resume into many tailored versions.</h3>
+            <div className="rounded-4xl border border-slate-200 bg-slate-950 p-7 text-white shadow-[0_16px_40px_rgba(15,23,42,0.12)]">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-300">Ready to begin?</p>
+              <h3 className="font-display mt-3 text-2xl font-semibold tracking-[-0.03em] text-white">
+                Turn one resume into many tailored versions.
+              </h3>
+              <p className="mt-4 text-sm leading-6 text-slate-300">
+                Start with a resume review, then generate a cleaner version for the role you want.
+              </p>
               <Link
                 to="/register"
-                className="liquid-btn liquid-btn-primary mt-5 inline-flex px-5 py-3 text-sm font-semibold"
+                className="liquid-btn liquid-btn-primary mt-6 inline-flex px-5 py-3 text-sm font-semibold"
               >
-                Create Your Resume
+                Create your resume
               </Link>
             </div>
           </div>
